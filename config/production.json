@@ -1,0 +1,31 @@
+{
+  "Beta": {
+    "dbConfig": {
+      "http": "http",
+      "host": "127.0.0.1",
+      "port": 27017,
+      "defaultPort": 3000,
+      "dbName": "test",
+      "dbUser": "chen",
+      "dbPassword": 123456,
+      "options": {
+        "useNewUrlParser": true,
+        "autoReconnect": true,
+        "reconnectTries": "Number.MAX_VALUE",
+        "reconnectInterval": 500,
+        "poolSize": 5,
+        "bufferMaxEntries": 0,
+        "connectTimeoutMS": 10000,
+        "socketTimeoutMS": 45000,
+        "family": 4,
+        "useUnifiedTopology": true,
+        "autoIndex": false
+      }
+    },
+    "jwtPrivateKey": "demo_key",
+    "credit": {
+      "initialLimit": 100,
+      "initialDays": 1
+    }
+  }
+}
