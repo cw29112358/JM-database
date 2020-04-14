@@ -3,7 +3,6 @@ const response = require('../utils/response')
 
 exports.jobs = async (ctx) => {
   const { current, limit } = ctx.request.query
-  const total = await jobs.countDocuments()
   const list = await jobs.find(
     null,
     'jobName address jobSequence demand department jobStatus',
@@ -13,7 +12,7 @@ exports.jobs = async (ctx) => {
     },
   )
   return (ctx.body = response({
-    total,
+    total: list.length,
     list,
   }))
 }

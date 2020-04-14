@@ -1,15 +1,12 @@
 const profiles = require('../model/profiles')
-const jwt = require('jsonwebtoken')
-const jwtPrivateKey = require('config').get('Customer.jwtPrivateKey')
 const signToken = require('../utils/signToken')
 const response = require('../utils/response')
 
 exports.getUserInfo = async (ctx) => {
-  const { authorization } = ctx.request.headers
-  if (authorization) {
+  const { _id } = ctx.state.user
+  if (_id) {
     try {
-      const _id = await jwt.verify(authorization, jwtPrivateKey)
-      const findAuth = await profiles.findOne({ _id }, { password: 0 })
+      const findAuth = await profiles.findById(_id, { password: 0 })
       return (ctx.body = response({ auth: findAuth }))
     } catch (err) {
       return (ctx.body = response({ message: '您的登录已经过期' }, 400))

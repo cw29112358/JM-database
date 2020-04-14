@@ -3,12 +3,12 @@ const router = new Router()
 
 const jobController = require('../controllers/jobController')
 
-router.get('/jobs', jobController.jobs)
+router.get('/', jobController.jobs)
 
-router.post('/create', jobController.create)
+router.post('/', jobController.create)
 
-router.get('/jobDetail', jobController.jobDetail)
+router.get('/detail', jobController.jobDetail)
 
-router.delete('/deleteJob', jobController.deleteJob)
+router.delete('/', jobController.deleteJob)
 
 module.exports = router.routes()
